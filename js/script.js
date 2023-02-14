@@ -15,16 +15,22 @@ if (rotation === 0) {
 }
 function rotateImg(param) {
   message.innerHTML= ''
-  if(param === 1)
-    rotation += -24; // add 90 degrees, you can change this as you want
-  if(param === 0){ 
-    rotation +=24;
-    question= question -1;
+  if(param == 1){
+    rotation += -24; // avançar
+    question = question+1;
+    console.log("+")
   }
+  if(param == 0){ 
+    rotation +=24; // voltar
+    question= question-1;
+    console.log("-")
+  }
+  console.log(question)
   if (rotation === -360) { 
     // 360 means rotate back to 0
     container.style.backgroundColor = '#00BFFF';
     rotation = 0;
+    question=1
     //Recommendation 1
   recommendation.innerHTML = `
   ____________________________________________<br/>
@@ -33,7 +39,7 @@ function rotateImg(param) {
   Neurological Disorders Depression
   Inventory for Epilepsy (NDDI-E) with a cutoff
   point of >13 is recommended.`
-  question= 1
+  
   }
 
   if(rotation == -24){
@@ -45,7 +51,7 @@ function rotateImg(param) {
     neurologist and/or psychiatrist make a
     diagnosis of depression through anamnesis
     and following the ICD-10 diagnostic criteria.`
-    question= 2
+   
   }else if(rotation == -48){
     //Recommendation 3
     recommendation.innerHTML = `
@@ -54,7 +60,7 @@ function rotateImg(param) {
     In PWE, it is recommended to evaluate the
     risk of suicide by their neurologist and/or
     psychiatrist through anamnesis.`
-    question= 3
+    
   } else if(rotation == -72){
     //Recommendation 4
     recommendation.innerHTML = `
@@ -65,7 +71,7 @@ function rotateImg(param) {
     depressive symptoms occur with seizures
     (peri-ictal) or when they are related to
     antiseizure medication.`
-    question= 4
+    
   } else if(rotation == -96){
     //Recommendation 5
     recommendation.innerHTML = `
@@ -79,7 +85,7 @@ function rotateImg(param) {
     dose, duration and adherence) or if augmentation
     of antidepressant treatment is needed..`
     container.style.backgroundColor = '#9400D3';
-    question= 5
+    
   } else if(rotation == -120){
     //Recommendation 6
     recommendation.innerHTML = `
@@ -92,7 +98,7 @@ function rotateImg(param) {
     oxcarbazepine is recommended; the use of
     levetiracetam, phenobarbital, topiramate, and
     perampanel is less recommended.`
-    question= 6
+    
   }else if(rotation == -144){
     //Recommendation 7
     recommendation.innerHTML = `
@@ -101,7 +107,7 @@ function rotateImg(param) {
     In PWE and depression, it is recommended to start
     treatment for depression as soon as possible after
     diagnosis, especially if there is a risk of suicide.`
-    question= 7
+    
   }else if(rotation == -168){
     //Recommendation 8
     recommendation.innerHTML = `    
@@ -114,7 +120,7 @@ function rotateImg(param) {
     and dual-type antidepressants is
     recommended; bupropion, clomipramine,
     and maprotiline are less recommended.`
-    question= 8
+    
   }else if(rotation == -192){
     //Recommendation 9
     recommendation.innerHTML = `    
@@ -130,7 +136,7 @@ function rotateImg(param) {
     SSRIs and SNRIs are usually the
     first-choice treatment for this
     population.`
-    question= 9
+    
   }else if(rotation == -216){
     //Recommendation 10
     recommendation.innerHTML = `    
@@ -144,7 +150,7 @@ function rotateImg(param) {
     number of psychotherapy sessions depending
     on the patient and the type of therapy
     established.`
-    question= 10
+    
   }else if(rotation == -240){
     //Recommendation 11
     recommendation.innerHTML = `    
@@ -155,7 +161,7 @@ function rotateImg(param) {
     remission in patients with a first episode and a
     minimum of 9 months in cases of a recurrent
     episode or severe depression.`
-    question= 11
+    
   }else if(rotation == -264){
     //Recommendation 12
     recommendation.innerHTML = `    
@@ -164,7 +170,7 @@ function rotateImg(param) {
     When an antidepressant should be discontinued, it is
     recommended to do so gradually over 1 to 4
     weeks.`
-    question= 12
+    
   }else if(rotation == -288){
     //Recommendation 13
     recommendation.innerHTML = `    
@@ -175,7 +181,7 @@ function rotateImg(param) {
     the depressive episode is suspected or if the
     depressive symptoms may worsen due to the ASM
     treatment.`
-    question= 13
+   
   }else if(rotation == -312){
     //Recommendation 14
     recommendation.innerHTML = `    
@@ -187,7 +193,7 @@ function rotateImg(param) {
     remission of depressive symptoms and withdrawal
     of treatment.`
     container.style.backgroundColor = '#191970';
-    question= 14
+   
   }else if(rotation == -336){
     //Recommendation 15
     recommendation.innerHTML = `    
@@ -198,7 +204,7 @@ function rotateImg(param) {
     psychiatrist's judgment, following the
     recommendations and/or follow-up clinical
     protocols established at their center.`
-    question= 15
+    
   }
   document.querySelector("#img").style.transform = `rotate(${rotation}deg)`;
 }
@@ -208,6 +214,9 @@ function rotateImg(param) {
 function showQuestion(){
   if(question <= 0){
     question= 15;
+  }
+  if(question > 15){
+    question= 1;
   }
   switch(question){
     case 1: 
