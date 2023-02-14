@@ -13,10 +13,14 @@ if (rotation === 0) {
   point of >13 is recommended.`
   question= 1
 }
-function rotateImg() {
+function rotateImg(param) {
   message.innerHTML= ''
-  question=0
-  rotation += -24; // add 90 degrees, you can change this as you want
+  if(param === 1)
+    rotation += -24; // add 90 degrees, you can change this as you want
+  if(param === 0){ 
+    rotation +=24;
+    question= question -1;
+  }
   if (rotation === -360) { 
     // 360 means rotate back to 0
     container.style.backgroundColor = '#00BFFF';
@@ -199,12 +203,13 @@ function rotateImg() {
   document.querySelector("#img").style.transform = `rotate(${rotation}deg)`;
 }
   let element = document.getElementById("question")
-  console.log(question)
   element.addEventListener("click", showQuestion);
   
 function showQuestion(){
   console.log(question)
-  
+  if(question <= 0){
+    question= 15;
+  }
   switch(question){
     case 1: 
       message.innerHTML = `<h2> QUESTION </h2>

@@ -12,14 +12,19 @@
       <div>
         <img id="marcador" src="marcador.png" alt="marcador" />
         <img id="img" src="roleta.png" />
-        <button id="question"> Question (?)</button>
-        <button onClick="rotateImg()">Next Recomendation » </button>
+        
       </div>
-    <div id="container">
-      <span id="message"></span>
-      <span id="recommendation"></span>
-    </div>
+      <div id="container">
+        <span id="message"></span>
+        <span id="recommendation"></span>
+      </div>
     </section>
+    <div id="buttons">
+      <button onClick="rotateImg(0)">« Before Recomendation  </button>
+      <button onClick="rotateImg(1)">Next Recomendation » </button>
+      <button id="question">Question (?)</button>
+    </div>
+    
     
     <script src="./js/script.js"></script>
   </body>
