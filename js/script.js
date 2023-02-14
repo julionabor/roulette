@@ -206,7 +206,6 @@ function rotateImg(param) {
   element.addEventListener("click", showQuestion);
   
 function showQuestion(){
-  console.log(question)
   if(question <= 0){
     question= 15;
   }
